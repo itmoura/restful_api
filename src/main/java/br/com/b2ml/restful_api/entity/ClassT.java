@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "class")
 public class ClassT {
@@ -33,11 +31,9 @@ public class ClassT {
     private String room;
 
     @Column(name = "date_oppening", columnDefinition="date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOppening;
 
     @Column(name = "date_ending")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateEnding;
 
     public ClassT(){
@@ -50,7 +46,7 @@ public class ClassT {
         this.room = "";
         this.dateOppening = new Date();
         this.dateEnding = new Date();
-        this.teacherId = null;
+        this.teacherId = new Teacher();
     }
 
     public long getId() {
